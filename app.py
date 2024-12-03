@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import pickle
 
 # Load the pickled model and DictVectorizer
-with open('adherence_model-v1.0.bin', 'rb') as f_in:
+with open('models/adherence_model-v1.0.bin', 'rb') as f_in:
     dv, model = pickle.load(f_in)
 
 app = Flask(__name__)

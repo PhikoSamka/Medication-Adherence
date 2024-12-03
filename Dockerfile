@@ -17,10 +17,13 @@ COPY ["Pipfile", "Pipfile.lock", "./"]
 RUN pipenv install --deploy --system && \
     rm -rf /root/.cache
 
-# Copy all necessary application files
-COPY ["*.py", "adherence_model-v1.0.bin", "./"]
+# Copy Python scripts
+COPY ["*.py", "./"]
 
-# Copy the templates and static directories
+# Copy the model file
+COPY models/adherence_model-v1.0.bin ./models/
+
+# Copy templates and static directories
 COPY templates/ ./templates/
 COPY static/ ./static/
 
@@ -29,3 +32,4 @@ EXPOSE 9696
 
 # Use Gunicorn to serve the Flask application
 CMD ["gunicorn", "--bind", "0.0.0.0:9696", "app:app"]
+
