@@ -1,0 +1,16 @@
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore virtual environments
+.venv/
+env/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+
+# Ignore environment variable files
+.env
