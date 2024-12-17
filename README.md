@@ -139,35 +139,93 @@ This threshold provides a strong recall while keeping false positives at an acce
 
 
  
-## **Reproducibility**  
-### **Local Environment**    
-- Run the following commands to replicate locally:  
-  ```bash  
-  git clone https://github.com/PhikoSamka/Medication-Adherence.git  
-  cd medication-adherence  
-- Build the docker image
-   ```bash
-  docker build -t adherence-app .
-- Run the image 
-   ```bash
-  docker run -p 9696:9696 adherence-app
-- Access the app in a browser at http://localhost:9696. Below is what the UI should look like:
+# Reproducibility
 
-![Application UI](resources/ui-application.png)
-### Testing the application
-To test the application, use the following input values:
+## Local Environment
 
-- `'age'`: `65`
-- `'prescription_period'`: `15`
-- `'alcoholism'`: `No (uncheck)`
-- `'hypertension`': `Yes (check)`
-- '`smokes'`: `Yes (check)`
-- The output should look like:
-   **"The Patient is likely to adhere to medication"**
+### Requirements
+- Docker installed and running.
+- Git installed on your local machine.
+
+Follow these steps to run the application locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/PhikoSamka/Medication-Adherence.git
+   cd Medication-Adherence
+   ```
+
+2. **Build the Docker image:**
+   ```bash
+   docker build -t adherence-app .
+   ```
+
+3. **Run the Docker container:**
+   ```bash
+   docker run -p 9696:9696 adherence-app
+   ```
+
+4. **Access the application:**
+   Open your browser and navigate to [http://localhost:9696](http://localhost:9696).
+   Below is what th UI should look like:
+   ![Application UI](resources/ui-application.png)
+
+5. **Test the application:**
+   Use the following sample input values:
+   - `age`: 65  
+   - `prescription_period`: 15  
+   - `alcoholism`: No (uncheck)  
+   - `hypertension`: Yes (check)  
+   - `smokes`: Yes (check)  
+   
+   **Expected Output:**  
+   "The Patient is likely to adhere to medication"
 
 ---
-### **Cloud Environment**   
-[In progress]
+
+## Cloud Environment (AWS EC2)
+
+### Requirements
+- An AWS account with EC2 service access.
+- SSH client (e.g., terminal, PuTTY) to connect to the instance.
+- Docker installed on the EC2 instance.
+
+Deploy the application to the cloud using an AWS EC2 instance:
+
+1. **Launch an EC2 Instance:**
+   - Use the **Amazon Linux 2** or **Ubuntu** AMI.
+   - Allow inbound traffic for **port 22 (SSH)**, **port 9696 (application)**, and **port 80 (HTTP)** in the security group.
+
+2. **Connect to the instance via SSH:**
+   ```bash
+   ssh -i <your-key>.pem ec2-user@<your-ec2-ip>
+   ```
+
+3. **Install Docker on the EC2 instance:**
+   ```bash
+   sudo yum update -y          # For Amazon Linux
+   sudo yum install docker -y  # For Amazon Linux
+   sudo service docker start
+   sudo usermod -aG docker $USER  # Optional: Run Docker without sudo
+   ```
+
+4. **Deploy the application:**
+   - Clone the repository:
+     ```bash
+     git clone https://github.com/PhikoSamka/Medication-Adherence.git
+     cd Medication-Adherence
+     ```
+   - Build the Docker image:
+     ```bash
+     docker build -t adherence-app .
+     ```
+   - Run the container:
+     ```bash
+     docker run -d -p 9696:9696 adherence-app
+     ```
+
+5. **Access the application:**
+   Open your browser and navigate to `http://<your-ec2-ip>:9696`.
 
 
 ## Conclusion
