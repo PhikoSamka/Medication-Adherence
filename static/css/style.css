@@ -1,0 +1,177 @@
+/* ==========================
+   Global Font & Background
+========================== */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #eef2f6; /* Light, clinical background */
+    color: #374151; /* Default text color */
+}
+
+/* Scroll offset for anchor links */
+.scroll-mt-header {
+    scroll-margin-top: 64px;
+}
+
+/* ==========================
+   Hero Section
+========================== */
+.hero-background {
+    background: linear-gradient(135deg, #eef2f6 0%, #d5e0ee 100%);
+}
+/* ==========================
+   Primary Button Fix
+========================== */
+.btn-primary {
+    background-color: #3b82f6 !important; /* blue background forced */
+    color: black !important;            /* white text forced */
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #2563eb !important; /* darker blue on hover */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    outline: none;
+}
+
+/* ==========================
+   Toggle Switch
+========================== */
+.toggle-bg {
+    display: none; /* hide default checkbox */
+}
+
+.toggle-bg + .toggle-switch {
+    background-color: #bfdbfe; /* light blue */
+    width: 2.5rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    border: 2px solid #bfdbfe;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.toggle-bg + .toggle-switch:after {
+    content: "";
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 9999px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.toggle-bg:checked + .toggle-switch {
+    background-color: #3b82f6; /* Blue when active */
+}
+
+.toggle-bg:checked + .toggle-switch:after {
+    transform: translateX(1.25rem);
+}
+
+/* ==========================
+   Risk Factor Card
+========================== */
+.risk-factor {
+    transition: all 0.15s;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.risk-factor.active {
+    background-color: #fee2e2; /* red background */
+    color: #b91c1c; /* red text */
+}
+
+.risk-factor.inactive {
+    background-color: #bfdbfe; /* light blue background */
+    color: #1d4ed8; /* blue text */
+}
+
+.risk-factor:hover.inactive {
+    background-color: #93c5fd; /* slightly darker blue on hover */
+}
+
+/* ==========================
+   Result Cards
+========================== */
+.result-adhering {
+    background-color: #d1fae5;
+    border-color: #10b981;
+    color: #065f46;
+}
+
+.result-nonadhering {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+/* ==========================
+   Metric Card
+========================== */
+.metric-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* ==========================
+   Chart Canvas
+========================== */
+canvas {
+    max-width: 100%;
+    height: 100% !important;
+}
+
+/* ==========================
+   Inputs & Form
+========================== */
+input[type="number"],
+input[type="text"],
+textarea,
+select {
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* ==========================
+   Footer Links Hover
+========================== */
+footer a:hover {
+    color: #3b82f6;
+    transition: color 0.2s;
+}
+
+/* ==========================
+   Fix for Buttons & Toggles
+========================== */
+button, .btn-primary, .toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    min-width: 6rem;
+}

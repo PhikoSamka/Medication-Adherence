@@ -31,5 +31,5 @@ COPY static/ ./static/
 EXPOSE 9696
 
 # Use Gunicorn to serve the Flask application
-CMD ["gunicorn", "--bind", "0.0.0.0:9696", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
 

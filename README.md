@@ -168,7 +168,7 @@ Follow these steps to run the application locally:
 4. **Access the application:**
    Open your browser and navigate to [http://localhost:9696](http://localhost:9696).
    Below is what th UI should look like:
-   ![Application UI](resources/ui-application.png)
+   ![Application UI](resources/ui-application-v2.png)
 
 5. **Test the application:**
    Use the following sample input values:
